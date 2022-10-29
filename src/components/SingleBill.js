@@ -1,11 +1,22 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { billActions } from "../store/billReducer";
 
 import EditBillCard from "./EditBillCard";
 function SingleBill({ id, category, amount, description, date, paid }) {
   const [isEdit, setIsEdit] = useState(false);
+  const { selectedBillsToPay } = useSelector((state) => state.bill);
+  const [isSelected, setIsSelected] = useState(null);
   const dispatch = useDispatch();
+  // const isSelected = useRef(null);
+  useEffect(() => {
+    let f = null;
+    if (selectedBillsToPay.length > 0) {
+      f = selectedBillsToPay.find((item) => item.id === id);
+    }
+    setIsSelected(f);
+  }, [selectedBillsToPay]);
   return isEdit ? (
     <EditBillCard
       id={id}
@@ -17,14 +28,13 @@ function SingleBill({ id, category, amount, description, date, paid }) {
     />
   ) : (
     <div
-      className="billWrapper"
+      className={`billWrapper ${isSelected ? "selected" : ""}`}
       style={{
         minWidth: "250px",
         width: "250px",
         margin: "15px 5px",
         padding: "5px",
         borderRadius: "10px",
-        border: "1px solid black",
       }}
     >
       <span className="category">{category}</span>

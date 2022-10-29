@@ -1,3 +1,3 @@
 export const updateBudget = (state, action) => {
-  state.budget = action.payload;
+  state.budget = Number(action.payload);
 };

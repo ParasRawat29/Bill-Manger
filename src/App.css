@@ -31,3 +31,21 @@ button:active {
   word-wrap: break-word;
   color: white;
 }
+
+.billWrapper.selected {
+  border: 5px solid rgb(247, 180, 9);
+  box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.75);
+}
+.billWrapper {
+  border: 1px solid black;
+}
+
+.info {
+  margin: auto;
+  width: fit-content;
+  padding: 3px 15px;
+  font-style: italic;
+  text-align: center;
+  background-color: rgba(247, 180, 9, 0.7);
+  border-radius: 10px;
+}

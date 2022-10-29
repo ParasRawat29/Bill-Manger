@@ -34,3 +34,7 @@ export const addBill = (state, action) => {
   const data = action.payload;
   state.bills.push(data);
 };
+
+export const updateSelectedBillsToPay = (state, action) => {
+  state.selectedBillsToPay = action.payload;
+};

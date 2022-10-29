@@ -2,17 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { calculateCategories } from "../helper";
+import { calculateCanBePaid, calculateCategories } from "../helper";
 import SingleBill from "./SingleBill";
 
 function BillsList({ currSelectedCat, viewPaid }) {
   const { bills } = useSelector((state) => state.bill);
+  const { budget } = useSelector((state) => state.userDetails);
   const [filteredBills, setFilteredBills] = useState(bills);
 
+  useEffect(() => {
+    calculateCanBePaid();
+  }, [budget]);
   useEffect(() => {
     calculateCategories();
     localStorage.setItem("bills", JSON.stringify(bills));
     setFilteredBills(bills);
+    calculateCanBePaid();
   }, [bills]);
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import Bills from "../components/Bills";
 import EveryMonthLine from "../components/EveryMonthLine";
 import MonthyExpPie from "../components/MonthyExpPie";

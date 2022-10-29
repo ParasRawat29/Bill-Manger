@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { calculateCategories } from "../helper";
+import { calculateCanBePaid, calculateCategories } from "../helper";
 import BillsList from "./BillsList";
 import EditBillCard from "./EditBillCard";
 
@@ -11,13 +11,14 @@ function Bills() {
   const { categories } = useSelector((state) => state.categories);
   const [currSelectedCat, setCurrSelectedCat] = useState("all");
   const [viewPaid, setViewPaid] = useState(false);
-  const [expectedPay, setExpectedPay] = useState([]);
+
   const handleCategoryChange = (e) => {
     setCurrSelectedCat(e.target.value);
   };
 
   useEffect(() => {
     calculateCategories();
+    calculateCanBePaid();
   }, []);
 
   return (
@@ -96,6 +97,10 @@ function Bills() {
             <EditBillCard setIsAdd={setIsAdd} />
           </div>
         )}
+        <p className="info">
+          Highlighted card shows that bill can be paid considering the current
+          budget
+        </p>
         <BillsList currSelectedCat={currSelectedCat} viewPaid={viewPaid} />
       </div>
     </div>

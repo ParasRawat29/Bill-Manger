@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userDetailsAction } from "../store/userDetails";
@@ -6,15 +6,16 @@ import { userDetailsAction } from "../store/userDetails";
 function MonthlyBudget() {
   const [edit, setEdit] = useState(false);
   const { budget } = useSelector((state) => state.userDetails);
-
   const dispatch = useDispatch();
+  const valRef = useRef(budget || 0);
   const handleChange = (e) => {
-    if (e.target.value.trim() === "") {
-      alert("budget cannot be 0 ");
-      return;
-    }
-    dispatch(userDetailsAction.updateBudget(e.target.value));
-    localStorage.setItem("budget", e.target.value);
+    valRef.current = e.target.value;
+  };
+
+  const handleSubmit = () => {
+    dispatch(userDetailsAction.updateBudget(valRef.current));
+    localStorage.setItem("budget", valRef.current);
+    setEdit(false);
   };
   return (
     <div
@@ -63,8 +64,8 @@ function MonthlyBudget() {
             <input
               type="number"
               name="budget"
+              defaultValue={valRef.current}
               onChange={handleChange}
-              value={budget}
               style={{
                 border: "none",
                 borderBottom: "1px solid black",
@@ -79,7 +80,7 @@ function MonthlyBudget() {
             />
             <p
               style={{ marginLeft: "10px", cursor: "pointer" }}
-              onClick={() => setEdit(false)}
+              onClick={handleSubmit}
             >
               ✔️
             </p>
