@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/bill-manager/static/css/main.1d48b4a5.css",
-    "main.js": "/bill-manager/static/js/main.30210ec1.js",
+    "main.js": "/bill-manager/static/js/main.d41f13bf.js",
     "index.html": "/bill-manager/index.html",
     "main.1d48b4a5.css.map": "/bill-manager/static/css/main.1d48b4a5.css.map",
-    "main.30210ec1.js.map": "/bill-manager/static/js/main.30210ec1.js.map"
+    "main.d41f13bf.js.map": "/bill-manager/static/js/main.d41f13bf.js.map"
   },
   "entrypoints": [
     "static/css/main.1d48b4a5.css",
-    "static/js/main.30210ec1.js"
+    "static/js/main.d41f13bf.js"
   ]
 }
