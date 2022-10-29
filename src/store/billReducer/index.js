@@ -12,7 +12,7 @@ const initState = JSON.parse(localStorage.getItem("bills"));
 const billSlice = createSlice({
   name: "billDetails",
   initialState: {
-    bills: initState,
+    bills: initState || [],
     selectedBillsToPay: [],
   },
 

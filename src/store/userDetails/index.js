@@ -5,7 +5,7 @@ const budget = localStorage.getItem("budget");
 const userDetailsSlice = createSlice({
   name: "categoriesSlice",
   initialState: {
-    budget: budget,
+    budget: budget || 0,
   },
   reducers: {
     updateBudget,
