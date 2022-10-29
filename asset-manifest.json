@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bill-manager/static/css/main.1d48b4a5.css",
+    "main.js": "/bill-manager/static/js/main.30210ec1.js",
+    "index.html": "/bill-manager/index.html",
+    "main.1d48b4a5.css.map": "/bill-manager/static/css/main.1d48b4a5.css.map",
+    "main.30210ec1.js.map": "/bill-manager/static/js/main.30210ec1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d48b4a5.css",
+    "static/js/main.30210ec1.js"
+  ]
+}
